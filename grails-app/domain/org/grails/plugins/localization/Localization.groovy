@@ -33,6 +33,7 @@ class Localization implements Serializable {
             code index: "localizations_idx"
             locale column: "loc"
         }
+        text(sqlType: 'text')
     }
 
     static constraints = {
@@ -42,7 +43,7 @@ class Localization implements Serializable {
             if (obj.locale) obj.relevance = obj.locale.length()
             return true
         })
-        text(blank: true, size: 0..2000)
+        text(blank: true)
     }
 
     def localeAsObj() {
